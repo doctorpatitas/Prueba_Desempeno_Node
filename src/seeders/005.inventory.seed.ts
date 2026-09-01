@@ -10,7 +10,8 @@ export async function seedInventory() {
         where: { inventory_name: 'Inventario Riwi' },
         defaults: {
             warehouse_id: warehouseId.id,
-            medication_id: medicineId.id
+            medication_id: medicineId.id,
+            stock_quantity: 100
         }
     });
 

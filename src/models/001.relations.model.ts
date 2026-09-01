@@ -4,6 +4,7 @@ import medicines from './medicines.model.js';
 import Roles from './roles.model.js';
 import Users from './users.model.js';
 import Warehouse from './warehouse.model.js';
+import RequestModel from './requests.model.js';
 
 ////////////////////////////////////////////////////////////
 // Roles relations
@@ -28,3 +29,17 @@ inventory.hasMany(Warehouse, { foreignKey: 'warehouse_id' });
 // Relation between Medicines and Inventory
 medicines.hasMany(inventory, { foreignKey: 'medication_id' });
 inventory.belongsTo(medicines, { foreignKey: 'medication_id' });
+
+////////////////////////////////////////////////////////////
+// Requests relations
+// Relation between Requests and Hospital
+RequestModel.hasMany(Hospital, { foreignKey: 'requested_hospital' });
+Hospital.belongsTo(RequestModel, { foreignKey: 'requested_hospital' });
+
+// Relation between Requests and Medicines
+RequestModel.belongsTo(medicines, { foreignKey: 'medicine' });
+medicines.hasMany(RequestModel, { foreignKey: 'medicine' });
+
+// Relation between Requests and Warehouse
+RequestModel.hasMany(Warehouse, { foreignKey: 'assigned_warehouse' });
+Warehouse.hasMany(RequestModel, { foreignKey: 'assigned_warehouse' });

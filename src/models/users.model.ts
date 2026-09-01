@@ -52,10 +52,9 @@ Users.init({
         type: DataTypes.ENUM('CC', 'CE', 'TI'),
         allowNull: false
     },
-    rol: {
+    rol_id: {
         type: DataTypes.INTEGER,
-        allowNull: false,
-        unique: true
+        allowNull: false
     }
 },{
     sequelize: db,

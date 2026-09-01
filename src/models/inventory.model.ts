@@ -5,6 +5,7 @@ class Inventory extends Model {
     declare id: number;
     declare warehouse_id: number;
     declare medication_id: number;
+    declare stock_quantity: number;
 }
 
 Inventory.init({
@@ -18,6 +19,10 @@ Inventory.init({
         allowNull: false
     },
     medication_id: {
+        type: DataTypes.INTEGER,
+        allowNull: false
+    },
+    stock_quantity: {
         type: DataTypes.INTEGER,
         allowNull: false
     }
